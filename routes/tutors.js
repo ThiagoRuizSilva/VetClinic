@@ -16,7 +16,6 @@ router.delete('/tutors/:id', async (req, res) => {
             return res.status(404).json({ message: 'Tutor not found, insert an existing' });
         }
     } catch (error) {
-        console.error('Erro ao excluir tutor:', error);
         return res.status(500).json({ message: 'Erro ao excluir tutor' });
     }
 })

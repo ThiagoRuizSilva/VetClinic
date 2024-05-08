@@ -5,6 +5,29 @@ import Tutors from '../models/Tutors.js';
 import { where } from 'sequelize';
 
 
+
+router.delete('/pets/:petId/tutors/:tutorId', async (req, res) => {
+    const petId = req.params.petId;
+
+    try {
+        const petExists = await Pets.findOne({ where: { id: petId } });
+        if (!petExists) {
+            return res.status(404).json({ message: 'Pet not found' });
+        }
+
+        const deletedPet = await Pets.destroy({ where: { id: petId } });
+        if (deletedPet > 0) {
+            return res.status(200).json({ message: 'Pet deleted successfully' });
+        } else {
+            return res.status(404).json({ message: 'Pet not found, insert an existing pet' });
+        }
+        
+    } catch (error) {
+        return res.status(500).json({ message: 'Error when deleting pet'});
+    }
+});
+
+
 router.put('/pets/:petId/tutors/:tutorId', async (req, res) => {
     const petId = req.params.petId;
     const tutorId = req.params.tutorId;
