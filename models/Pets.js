@@ -16,7 +16,7 @@ const Pets = db.define('Pets', {
         type: Sequelize.INTEGER
     },
     date_of_birth: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
     }
 
 
