@@ -3,7 +3,7 @@ const router = express.Router()
 import Pets from '../models/Pets.js'
 import Tutors from '../models/Tutors.js';
 import { where } from 'sequelize';
-
+import { chekPets } from '../middlewares/chekPets.js';
 
 
 router.delete('/pets/:petId/tutors/:tutorId', async (req, res) => {
@@ -51,7 +51,7 @@ router.put('/pets/:petId/tutors/:tutorId', async (req, res) => {
 
 
 
-router.post("/pets/:TutorId", async (req, res) => {
+router.post("/pets/:TutorId", chekPets, async (req, res) => {
     const TutorId = req.params.TutorId; 
     const name = req.body.name;
     const species = req.body.species;
