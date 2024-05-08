@@ -2,6 +2,29 @@ import express from 'express'
 const router = express.Router()
 import Pets from '../models/Pets.js'
 import Tutors from '../models/Tutors.js';
+import { where } from 'sequelize';
+
+
+router.put('/pets/:petId/tutors/:tutorId', async (req, res) => {
+    const petId = req.params.petId;
+    const tutorId = req.params.tutorId;
+
+    const { name, species, carry, weight, date_of_birth } = req.body; 
+
+    try {
+        const pets = await Pets.findOne({ where: { id: petId, tutorId: tutorId } });
+
+        if (!pets) {
+            return res.status(404).send({ message: 'Pet not found' });
+        }
+        await pets.update({name, species, carry, weight, date_of_birth})
+        res.status(200).json({ message: 'Pet updated successfully', pets: pets });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send({ message: 'Error updating pet', error: err.message });
+    }
+})
 
 
 
