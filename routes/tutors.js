@@ -49,21 +49,27 @@ router.get("/tutors", (req, res) => {
             res.status(500).send({ message: 'Error fetching tutors', error: err.message });
         });
 });
-router.post('/tutors', (req, res) => {
+router.post('/tutors', async (req, res) => {
     let { name, phone, email, date_of_birth, zip_code } = req.body;
 
-    Tutors.create({
-        name,
-        phone,
-        email,
-        date_of_birth,
-        zip_code
-    }).then((tutor) => {
+    const emailExist = await Tutors.findOne({ where: {email: email}})
+    if(emailExist) {
+        return res.status(400).send({ message: 'Email already exists' });
+    }
+
+    try {
+        const tutor = await Tutors.create({
+            name,
+            phone,
+            email,
+            date_of_birth,
+            zip_code
+        });
         res.status(201).json(tutor);
-    }).catch((err) => {
+    } catch (err) {
         console.log(err);
         res.status(500).send({ message: 'Error creating tutor', error: err.message });
-    });
+    }
 });
 
 export default router;
