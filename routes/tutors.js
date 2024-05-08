@@ -2,6 +2,7 @@ import express from 'express'
 const router = express.Router()
 import Tutors from '../models/Tutors.js'
 import { where } from 'sequelize'
+import { chek } from '../middlewares/chekTutor.js'
 
 
 router.delete('/tutors/:id', async (req, res) => {
@@ -49,7 +50,7 @@ router.get("/tutors", (req, res) => {
             res.status(500).send({ message: 'Error fetching tutors', error: err.message });
         });
 });
-router.post('/tutors', async (req, res) => {
+router.post('/tutors', chek, async (req, res) => {
     let { name, phone, email, date_of_birth, zip_code } = req.body;
 
     const emailExist = await Tutors.findOne({ where: {email: email}})
