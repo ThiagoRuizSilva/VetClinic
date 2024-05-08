@@ -42,5 +42,5 @@ app.get('/', (req, res) => {
 })
 
 // all tutor routes
-app.use('/pets', petsRouter); 
-app.use('/tutors', tutorsRouter);
+app.use( petsRouter); 
+app.use( tutorsRouter);

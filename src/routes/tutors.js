@@ -3,6 +3,7 @@ const router = express.Router()
 import Tutors from '../models/Tutors.js'
 import { where } from 'sequelize'
 import { chek } from '../middlewares/chekTutor.js'
+import Pets from '../models/Pets.js'
 
 
 router.delete('/tutors/:id', async (req, res) => {
@@ -40,15 +41,20 @@ router.put('/tutors/:id', async (req, res) => {
     }
 });
 
-router.get("/tutors", (req, res) => {
-    Tutors.findAll()
-       .then(tutors => {
-            res.status(200).json(tutors);
-        })
-       .catch(err => {
-            console.error(err);
-            res.status(500).send({ message: 'Error fetching tutors', error: err.message });
+router.get("/tutors", async (req, res) => {
+    try {
+        const tutors = await Tutors.findAll({
+            include: [{
+                model: Pets,
+                as: 'pets' 
+            }]
         });
+
+        res.status(200).json(tutors);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send({ message: 'Error fetching tutors', error: err.message });
+    }
 });
 router.post('/tutors', chek, async (req, res) => {
     let { name, phone, email, date_of_birth, zip_code } = req.body;

@@ -21,8 +21,6 @@ const Pets = db.define('Pets', {
 
 
 })
-
-Tutors.hasMany(Pets)
-Pets.belongsTo(Tutors)
-
+Tutors.hasMany(Pets, { as: 'pets' });
+Pets.belongsTo(Tutors, { as: 'tutor' });
 export default Pets
