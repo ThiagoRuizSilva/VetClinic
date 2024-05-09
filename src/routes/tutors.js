@@ -8,17 +8,24 @@ import Pets from '../models/Pets.js'
 
 router.delete('/tutors/:id', async (req, res) => {
     const id = req.params.id;
-
-
+    const petId = req.params.petId;
+    console.log(id)
+    console.log('antes do bloco');
+    
     try {
-        const deletedTutors = await Tutors.destroy({ where: { id: id } });
-        if (deletedTutors > 0) {
-            return res.status(200).json({ message: 'Tutor deleted successfully' });
-        } else {
-            return res.status(404).json({ message: 'Tutor not found, insert an existing' });
+        const deletedPet = await Pets.destroy({ where:{ tutorId: id}})
+        console.log(petId)
+        if(deletedPet > 0) {
+            console.log("passo aq");
+            const deletedTutors = await Tutors.destroy({ where: { id: id } });
+             if (deletedTutors > 0) {
+                return res.status(200).json({ message: 'Tutor deleted successfully' });
+            } else {
+                return res.status(404).json({ message: 'Tutor not found, insert an existing' });
+            }
         }
-    } catch (error) {
-        return res.status(500).json({ message: 'Erro ao excluir tutor' });
+    } catch (e) {
+        return res.status(500).json({ message: 'Error' });
     }
 })
 
