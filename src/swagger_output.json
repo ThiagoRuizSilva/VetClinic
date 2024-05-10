@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "REST API VetClinic",
-    "description": ""
+    "description": "VetClinic is a CRUD API REST developed to facilitate the registration of owners and their pets. The API aims to offer an efficient solution for managing information about owners and their pets"
   },
   "host": "localhost:3333",
   "basePath": "/",
@@ -147,7 +147,7 @@
     },
     "/tutors/{id}": {
       "delete": {
-        "description": "",
+        "description": "Delete the tutor by id and also his pets",
         "parameters": [
           {
             "name": "id",
@@ -218,7 +218,7 @@
     },
     "/tutors": {
       "get": {
-        "description": "",
+        "description": "Returns all guardians and pets related to that guardian by id",
         "responses": {
           "200": {
             "description": "OK"
@@ -229,7 +229,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Add a new tutor",
         "parameters": [
           {
             "name": "body",
