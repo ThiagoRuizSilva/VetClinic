@@ -11,9 +11,18 @@
     "http"
   ],
   "paths": {
+     "tags": {
+       "name": "Tutors",
+       "description": "Endpoints related to Tutors"
+     },
+     "tags": {
+      "name": "Pets",
+      "description": "Endpoints relacionados aos Pets"
+    },
     "/pets/{petId}/tutors/{tutorId}": {
       "delete": {
         "description": "",
+        "tags": ["Pets"],
         "parameters": [
           {
             "name": "petId",
@@ -43,6 +52,7 @@
       "put": {
         "description": "",
         "summary": "Update an existing pet",
+        "tags": ["Pets"],
         "parameters": [
           {
             "name": "petId",
@@ -96,7 +106,9 @@
     },
     "/pets/{TutorId}": {
       "post": {
-        "description": "",
+        "description": "Add pet to an owner by id",
+        "summary": "Add pet to an owner by id",
+        "tags": ["Pets"],
         "parameters": [
           {
             "name": "TutorId",
@@ -148,6 +160,8 @@
     "/tutors/{id}": {
       "delete": {
         "description": "Delete the tutor by id and also his pets",
+        "summary": "Delete tutor by id",
+        "tags": ["Tutores"],
         "parameters": [
           {
             "name": "id",
@@ -171,6 +185,7 @@
       "put": {
         "description": "Update an existing tutor by Id",
         "summary": "Update an existing tutor",
+        "tags": ["Tutores"],
         "parameters": [
           {
             "name": "id",
@@ -218,7 +233,9 @@
     },
     "/tutors": {
       "get": {
-        "description": "Returns all guardians and pets related to that guardian by id",
+        "description": "Returns all tutors and pets related to that tutor by id",
+        "summary": "List owners and their pets",
+        "tags": ["Tutores"],
         "responses": {
           "200": {
             "description": "OK"
@@ -230,6 +247,8 @@
       },
       "post": {
         "description": "Add a new tutor",
+        "summary": "Create tutor",
+        "tags": ["Tutores"],
         "parameters": [
           {
             "name": "body",
