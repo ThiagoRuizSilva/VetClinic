@@ -16,11 +16,19 @@ const Pets = db.define('Pets', {
         type: Sequelize.INTEGER
     },
     date_of_birth: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        validate: {
+            validDate(value) {
+                if (!/^(\d{4})-(\d{2})-(\d{2})\s(\d{2}):(\d{2})$/.test(value)) {
+                    throw new Error('The date of birth must be in the format yyyy-mm-dd HH:MM.');
+                }
+            }
+        }
     }
+}, {
+    timestamps: false,
+  })
 
-
-})
 Tutors.hasMany(Pets, { as: 'pets' });
 Pets.belongsTo(Tutors, { as: 'tutor' });
 export default Pets
