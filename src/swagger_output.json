@@ -73,19 +73,19 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "example": "Bob"
                 },
                 "species": {
-                  "example": "any"
+                  "example": "dog"
                 },
                 "carry": {
-                  "example": "any"
+                  "example": "p"
                 },
                 "weight": {
-                  "example": "any"
+                  "example": "5"
                 },
                 "date_of_birth": {
-                  "example": "any"
+                  "example": "2004-05-18 10:10"
                 }
               }
             }
@@ -123,19 +123,19 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "example": "Lilo"
                 },
                 "species": {
-                  "example": "any"
+                  "example": "Dog"
                 },
                 "carry": {
-                  "example": "any"
+                  "example": "p"
                 },
                 "weight": {
-                  "example": "any"
+                  "example": "7"
                 },
                 "date_of_birth": {
-                  "example": "any"
+                  "example": "2018-05-01 15:15"
                 }
               }
             }
@@ -200,19 +200,19 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "example": "Joao"
                 },
                 "phone": {
-                  "example": "any"
+                  "example": "+55-666-666-666"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "joao@gmail.com"
                 },
                 "date_of_birth": {
-                  "example": "any"
+                  "example": "1980-01-01 15:40"
                 },
                 "zip_code": {
-                  "example": "any"
+                  "example": "12345"
                 }
               }
             }
@@ -257,19 +257,19 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "example": "John"
                 },
                 "phone": {
-                  "example": "any"
+                  "example": "+55-666-666-666"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "john@gmail.com"
                 },
                 "date_of_birth": {
-                  "example": "any"
+                  "example": "1990-02-04 09:10"
                 },
                 "zip_code": {
-                  "example": "any"
+                  "example": "12345"
                 }
               }
             }
