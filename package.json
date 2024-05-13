@@ -8,6 +8,7 @@
     "dev": "nodemon --env-file=.env src/server.js",
     "swagger-autogen": "node src/swagger.js",
     "format": "prettier --write ."
+
   },
   "keywords": [],
   "author": "",
@@ -21,7 +22,9 @@
     "sequelize": "^6.37.3",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7",
-    "swagger-ui-express": "^5.0.0"
+    "swagger-ui-express": "^5.0.0",
+    "swagger-ui-dist": "^5.17.9"
+
   },
   "devDependencies": {
     "prettier": "3.2.5",

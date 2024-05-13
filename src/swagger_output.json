@@ -7,34 +7,25 @@
   },
   "host": "localhost:3333",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": [
+    "http"
+  ],
   "paths": {
-    "tags": {
-      "name": "Tutors",
-      "description": "Endpoints related to Tutors"
-    },
-    "tags": {
-      "name": "Pets",
-      "description": "Endpoints relacionados aos Pets"
-    },
     "/pets/{petId}/tutors/{tutorId}": {
       "delete": {
         "description": "",
-        "tags": ["Pets"],
         "parameters": [
           {
-            
-            "in": "path",
             "name": "petId",
+            "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "in": "path",
             "name": "tutorId",
+            "in": "path",
             "required": true,
-            "type": "string",
-            "example": 123
+            "type": "string"
           }
         ],
         "responses": {
@@ -51,8 +42,6 @@
       },
       "put": {
         "description": "",
-        "summary": "Update an existing pet",
-        "tags": ["Pets"],
         "parameters": [
           {
             "name": "petId",
@@ -73,19 +62,19 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "Bob"
+                  "example": "any"
                 },
                 "species": {
-                  "example": "dog"
+                  "example": "any"
                 },
                 "carry": {
-                  "example": "p"
+                  "example": "any"
                 },
                 "weight": {
-                  "example": "5"
+                  "example": "any"
                 },
                 "date_of_birth": {
-                  "example": "2004-05-18 10:10"
+                  "example": "any"
                 }
               }
             }
@@ -106,9 +95,7 @@
     },
     "/pets/{TutorId}": {
       "post": {
-        "description": "Add pet to an owner by id",
-        "summary": "Add pet to an owner by id",
-        "tags": ["Pets"],
+        "description": "",
         "parameters": [
           {
             "name": "TutorId",
@@ -123,19 +110,19 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "Lilo"
+                  "example": "any"
                 },
                 "species": {
-                  "example": "Dog"
+                  "example": "any"
                 },
                 "carry": {
-                  "example": "p"
+                  "example": "any"
                 },
                 "weight": {
-                  "example": "7"
+                  "example": "any"
                 },
                 "date_of_birth": {
-                  "example": "2018-05-01 15:15"
+                  "example": "any"
                 }
               }
             }
@@ -147,80 +134,6 @@
           },
           "400": {
             "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/tutors/{id}": {
-      "delete": {
-        "description": "Delete the tutor by id and also his pets",
-        "summary": "Delete tutor by id",
-        "tags": ["Tutores"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "put": {
-        "description": "Update an existing tutor by Id",
-        "summary": "Update an existing tutor",
-        "tags": ["Tutores"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "example": "Joao"
-                },
-                "phone": {
-                  "example": "+55-666-666-666"
-                },
-                "email": {
-                  "example": "joao@gmail.com"
-                },
-                "date_of_birth": {
-                  "example": "1980-01-01 15:40"
-                },
-                "zip_code": {
-                  "example": "12345"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
           },
           "404": {
             "description": "Not Found"
@@ -233,9 +146,7 @@
     },
     "/tutors": {
       "get": {
-        "description": "Returns all tutors and pets related to that tutor by id",
-        "summary": "List owners and their pets",
-        "tags": ["Tutores"],
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -246,9 +157,7 @@
         }
       },
       "post": {
-        "description": "Add a new tutor",
-        "summary": "Create tutor",
-        "tags": ["Tutores"],
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -257,19 +166,19 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "John"
+                  "example": "any"
                 },
                 "phone": {
-                  "example": "+55-666-666-666"
+                  "example": "any"
                 },
                 "email": {
-                  "example": "john@gmail.com"
+                  "example": "any"
                 },
                 "date_of_birth": {
-                  "example": "1990-02-04 09:10"
+                  "example": "any"
                 },
                 "zip_code": {
-                  "example": "12345"
+                  "example": "any"
                 }
               }
             }
@@ -281,6 +190,76 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/tutors/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "date_of_birth": {
+                  "example": "any"
+                },
+                "zip_code": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
