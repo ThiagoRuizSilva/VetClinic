@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon --env-file=.env src/server.js",
-    "swagger-autogen": "node src/swagger.js"
+    "swagger-autogen": "node src/swagger.js",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
+    "prettier": "3.2.5",
     "swagger-autogen": "^2.23.7"
   }
 }

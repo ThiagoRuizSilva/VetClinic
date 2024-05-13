@@ -21,6 +21,7 @@ VetClinica é um CRUD API desenvolvida para facilitar o cadastro de tutores e se
 A documentação completa da API VetClinica está disponível através do Swagger. Esta ferramenta oferece uma interface intuitiva para testar os endpoints da API, além de fornecer um arquivo .json com as configurações de todos os endpoints.
 
 Para acessar a documentação localmente, basta rodar o projeto e abrir o seguinte link em seu navegador:
+
 ```bash
 http://localhost:3333/doc
 ```
@@ -35,12 +36,11 @@ Na documentação, você encontrará:
 - **Respostas esperadas**: Informações sobre os códigos de status HTTP e os formatos de resposta.
 - **Exemplos interativos**: A capacidade de testar requisições diretamente na documentação, o que facilita a experimentação e o desenvolvimento.
 
-
 ## Configuração Local para usar a API
 
 Para configurar o projeto localmente, siga estes passos:
 
- Clone o repositório:
+Clone o repositório:
 
 ```bash
  git clone https://github.com/ThiagoRuizSilva/VetClinic.git
@@ -60,7 +60,8 @@ Para configurar o projeto localmente, siga estes passos:
 
 ### Configuração
 
- Configure as variáveis de ambiente necessárias no arquivo `.env`.
+Configure as variáveis de ambiente necessárias no arquivo `.env`.
+
 ## Executar a aplicação
 
 Para executar a aplicação, rode o seguinte comando no terminal:

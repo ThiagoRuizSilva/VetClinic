@@ -22,9 +22,7 @@ const Pets = db.define(
       validate: {
         validDate(value) {
           if (!/^(\d{4})-(\d{2})-(\d{2})\s(\d{2}):(\d{2})$/.test(value)) {
-            throw new Error(
-              "The date of birth must be in the format yyyy-mm-dd HH:MM."
-            );
+            throw new Error("The date of birth must be in the format yyyy-mm-dd HH:MM.");
           }
         },
       },
@@ -33,7 +31,7 @@ const Pets = db.define(
   {
     timestamps: false,
     tableName: "Pets",
-  }
+  },
 );
 
 Tutors.hasMany(Pets, { as: "pets" });

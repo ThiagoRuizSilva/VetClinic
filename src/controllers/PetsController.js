@@ -15,9 +15,7 @@ export const deletePet = async (req, res) => {
     if (deletedPet > 0) {
       return res.status(200).json({ message: "Pet deleted successfully" });
     } else {
-      return res
-        .status(404)
-        .json({ message: "Pet not found, insert an existing pet" });
+      return res.status(404).json({ message: "Pet not found, insert an existing pet" });
     }
   } catch (error) {
     return res.status(500).json({ message: "Error when deleting pet" });
@@ -75,8 +73,6 @@ export const createPet = async (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res
-        .status(500)
-        .send({ message: "Error creating pet", error: err.message });
+      res.status(500).send({ message: "Error creating pet", error: err.message });
     });
 };
