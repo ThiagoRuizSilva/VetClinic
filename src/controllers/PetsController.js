@@ -4,11 +4,15 @@ import { where } from "sequelize";
 
 export const deletePet = async (req, res) => {
   const petId = req.params.petId;
+  const tutorId = req.params.tutorId;
+
+  console.log(petId);
+  console.log(tutorId);
 
   try {
-    const petExists = await Pets.findOne({ where: { id: petId } });
+    const petExists = await Pets.findOne({ where: { id: petId, tutorId: tutorId } });
     if (!petExists) {
-      return res.status(404).json({ message: "Pet not found" });
+      return res.status(404).json({ message: "Pet not found or not related to the specified tutor" });
     }
 
     const deletedPet = await Pets.destroy({ where: { id: petId } });
@@ -33,8 +37,7 @@ export const updatePet = async (req, res) => {
 
   try {
     const pets = await Pets.findOne({ where: { id: petId, tutorId: tutorId } });
-
-    if (!pets) {
+   if (!pets) {
       return res.status(404).send({ message: "Pet not found" });
     }
     await pets.update({ name, species, carry, weight, date_of_birth });

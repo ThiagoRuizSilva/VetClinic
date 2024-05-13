@@ -23,16 +23,18 @@
         "tags": ["Pets"],
         "parameters": [
           {
-            "name": "petId",
+            
             "in": "path",
+            "name": "petId",
             "required": true,
             "type": "string"
           },
           {
-            "name": "tutorId",
             "in": "path",
+            "name": "tutorId",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "example": 123
           }
         ],
         "responses": {
